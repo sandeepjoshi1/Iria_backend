@@ -1,21 +1,16 @@
-const express = require("express");
-const connectDB = require("./config/db");
+import express from "express";
+import mongoose from "mongoose";
+import config from ".";
 
-// Initialize Express
 const app = express();
+const port = config.port;
+const dbUri = config.dbUri;
 
-// Connect to MongoDB
-connectDB();
+mongoose
+  .connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Your MongoDB is running and active"))
+  .catch((err) => console.error("Could not connect to MongoDB", err));
 
-// Define routes
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
-// Define port
-const PORT = process.env.PORT || 5000;
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
