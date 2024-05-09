@@ -1,6 +1,6 @@
-const StockData = require("../models/dataModel");
+import StockData from "../models/dataModel.js";
 
-exports.getStockData = async (req, res) => {
+export const getStockData = async (req, res) => {
   try {
     const stocks = await StockData.find();
     res.json(stocks);
@@ -9,7 +9,7 @@ exports.getStockData = async (req, res) => {
   }
 };
 
-exports.createStockData = async (req, res) => {
+export const createStockData = async (req, res) => {
   const newStock = new StockData({
     ticker: req.body.ticker,
     price: req.body.price,

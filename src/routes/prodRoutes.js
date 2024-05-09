@@ -1,5 +1,8 @@
 import express from "express";
-import { getStockData, createStockData } from "../controllers/dataController";
+import {
+  getStockData,
+  createStockData,
+} from "../controllers/dataController.js";
 
 const router = express.Router();
 

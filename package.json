@@ -4,8 +4,9 @@
   "description": "Backend services for Iria application",
   "main": "src/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node src/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon src/index.js"
+    "start": "cross-env NODE_ENV=production  nodemon src/index.js",
+    "dev": "cross-env NODE_ENV=development  nodemon src/index.js",
+    "test": "cross-env NODE_ENV=test nodemon src/index.js"
   },
   "keywords": [
     "nodejs",
